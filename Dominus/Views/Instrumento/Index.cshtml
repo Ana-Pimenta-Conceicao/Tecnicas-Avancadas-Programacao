@@ -1,0 +1,42 @@
+﻿@model IEnumerable<InstrumentoModel>
+
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-5">
+        <h1>Instrumentos Musicais</h1>
+        <a class="btn btn-success mx-2" asp-controller="Instrumento" asp-action="Cadastrar">Cadastrar novo instrumento</a>
+    </div>
+
+    <table class="table table-stripped table-dark">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Marca</th>
+                <th scope="col">Valor</th>
+                <th scope="col">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null)
+            {
+                @foreach (var instrumento in Model)
+                {
+                    <tr>
+                        <th scope="row">@instrumento.Id</th>
+                        <td>@instrumento.Nome</td>
+                        <td>@instrumento.Marca</td>
+                        <td>@instrumento.Valor</td>
+                        <td>
+                            <a asp-controller="Instrumento" asp-action="Editar" asp-route-id="@instrumento.Id" class="btn btn-warning mx-2">Editar</a>
+                            <a asp-controller="Instrumento" asp-action="Excluir" asp-route-id="@instrumento.Id" class="btn btn-danger mx-2">Excluir</a>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr><td><strong>Nenhum Instrumento foi encontrado!</strong></td></tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,33 @@
+﻿@model InstrumentoModel
+@{
+	ViewData["title"] = "Excluir Instrumento";
+}
+
+<div class="container bg-dark p-5 rounded-5">
+	<div class="mb-5 text-center">
+		<h1 class="text-light">Excluir Instrumento</h1>
+	</div>
+
+	<form method="post" asp-controller="Instrumento" asp-action="Excluir">
+		<input type="hidden" asp-for="Id" />
+		<div class="form-group">
+			<label for="Nome" class="text-light">Nome</label>
+			<input type="text" class="form-control" asp-for="Nome" disabled id="Nome" placeholder="Informe o nome" />
+			<span class="text-danger" asp-validation-for="Nome"></span>
+		</div>
+		<div class="form-group">
+			<label for="Marca" class="text-light">Marca</label>
+			<input type="text" class="form-control" asp-for="Marca" disabled id="Marca" placeholder="Informe a Marca" />
+			<span class="text-danger" asp-validation-for="Marca"></span>
+		</div>
+		<div class="form-group">
+			<label for="Valor" class="text-light">Valor</label>
+			<input type="text" class="form-control" asp-for="Valor" disabled id="Telefone" placeholder="Informe o valor" />
+			<span class="text-danger" asp-validation-for="Valor"></span>
+		</div>
+		<div class="d-flex gap-5 mt-5">
+			<button type="submit" class="btn btn-success w-50">Excluir</button>
+			<a class="btn btn-primary w-50" asp-controller="Instrumento" asp-action="Index">Voltar</a>
+		</div>
+	</form>
+</div>
